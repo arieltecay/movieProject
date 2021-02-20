@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { MoviesService } from '../services/movies.service';
+import { movies } from '../model/movies.interface';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +9,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  results: Observable<movies>;
+  term: string = '';
+  type: string = '';
 
-  constructor() {}
+  constructor(private movService: MoviesService) {}
 
+  ngOnInit() {}
+  searcheChanged() {
+    this.results = this.movService.searchMovies(this.term, this.type);
+  }
 }
