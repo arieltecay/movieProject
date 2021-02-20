@@ -1,0 +1,17 @@
+ion-content {
+  --padding-top: 40%;
+  --padding-start: 10%;
+  --padding-end: 10%;
+  --background: url(../../../assets/movies1.jpeg) 0% 0%/100%;
+}
+ion-text {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  padding-bottom: 20%;
+  font-weight: bold;
+}
+.forgot {
+  font-size: 12px;
+  background-color: blue;
+}

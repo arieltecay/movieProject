@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Video App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-text>Login</ion-text>
+  <form (ngSubmit)="login(credentials.value)" [formGroup]="credentials">
+    <ion-item>
+      <ion-input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      ></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let messages of validation_messages.email">
+        <div
+          style="background-color: white; color: red"
+          *ngIf="
+        credentials.get('email').hasError(messages.type)&&(credentials.get('email').dirty || credentials.get('email').touched)
+        "
+        >
+          {{messages.message}}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      ></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let messages of validation_messages.password">
+        <div
+          style="background-color: white; color: red"
+          *ngIf="
+        credentials.get('password').hasError(messages.type)&&(credentials.get('password').dirty || credentials.get('password').touched)
+        "
+        >
+          {{messages.message}}
+        </div>
+      </ng-container>
+
+      <div style="background-color: white; color: red">{{errorMessage}}</div>
+    </div>
+    <div>
+      <ion-button type="submit" expand="block" [disabled]="!credentials.valid"
+        >Log In</ion-button
+      >
+    </div>
+    <div>
+      <ion-button
+        class="forgot"
+        type="button"
+        expand="block"
+        color="light"
+        fill="clear"
+        >Not yet a member? Sign Up!</ion-button
+      >
+    </div>
+  </form>
+</ion-content>
