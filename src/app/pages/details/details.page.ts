@@ -15,11 +15,10 @@ export class DetailsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.activateRoute.snapshot.paramMap);
-    
     let id = this.activateRoute.snapshot.paramMap.get('id');
     this.movieService.getDetails(id).subscribe((res) => {
       this.content = res;
+      console.log(this.content);
     });
   }
 }

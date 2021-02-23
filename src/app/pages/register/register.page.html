@@ -1,9 +1,112 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-back-button ngDefaultControl="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form
+    (ngSubmit)="register(registerCredentials.value)"
+    [formGroup]="registerCredentials"
+  >
+    <ion-item>
+      <ion-input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+      ></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let messages of validation_messages.email">
+        <div
+          style="background-color: white; color: red"
+          *ngIf="
+        registerCredentials.get('email').hasError(messages.type)&&(registerCredentials.get('email').dirty || registerCredentials.get('email').touched)
+        "
+        >
+          {{messages.message}}
+        </div>
+      </ng-container>
+    </div>
 
+    <ion-item>
+      <ion-input
+        type="text"
+        placeholder="Name"
+        formControlName="name"
+      ></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let messages of validation_messages.name">
+        <div
+          style="background-color: white; color: red"
+          *ngIf="
+        registerCredentials.get('name').hasError(messages.type)&&(registerCredentials.get('name').dirty || registerCredentials.get('name').touched)
+        "
+        >
+          {{messages.message}}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-input
+        type="text"
+        placeholder="Last Name"
+        formControlName="LastName"
+      ></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let messages of validation_messages.lastName">
+        <div
+          style="background-color: white; color: red"
+          *ngIf="
+        registerCredentials.get('LastName').hasError(messages.type)&&(registerCredentials.get('LastName').dirty || registerCredentials.get('LastName').touched)
+        "
+        >
+          {{messages.message}}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="password"
+        placeholder="Repeat Password"
+        formControlName="password"
+      ></ion-input>
+    </ion-item>
+    <div class="validation-error">
+      <ng-container *ngFor="let messages of validation_messages.password">
+        <div
+          style="background-color: white; color: red"
+          *ngIf="
+        registerCredentials.get('password').hasError(messages.type)&&(registerCredentials.get('password').dirty || registerCredentials.get('password').touched)
+        "
+        >
+          {{messages.message}}
+        </div>
+      </ng-container>
+
+      <div style="background-color: white; color: red">{{errorMessage}}</div>
+    </div>
+    <div>
+      <ion-button
+        type="submit"
+        expand="block"
+        [disabled]="!registerCredentials.valid"
+        >Register</ion-button
+      >
+    </div>
+  </form>
 </ion-content>
