@@ -1,9 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="home()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div id="header">
+    <h1>Login</h1>
+    <img [src]="url" />
+    <input type="file" (change)="onFileChange($event)" />
+  </div>
+  <div class="data">
+    <div>Nombre: {{userProfile.name}}</div>
+    <div>Apellido: {{userProfile.LastName}}</div>
+    <div>Email: {{userProfile.email}}</div>
+  </div>
 </ion-content>

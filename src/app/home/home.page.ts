@@ -29,4 +29,7 @@ export class HomePage {
     this.storage.set('logeado', false);
     this.navCtrl.navigateRoot('/login');
   }
+  profileView() {
+    this.navCtrl.navigateRoot('/profile');
+  }
 }
