@@ -11,6 +11,7 @@ export class MoviesService {
   constructor(private http: HttpClient) {}
   private url: string = '';
   private apikey: string = '9a617796';
+  
   searchMovies(title: string, type: string) {
     this.url = `http://www.omdbapi.com/?s=${encodeURI(title)}&{type}&apikey=${
       this.apikey

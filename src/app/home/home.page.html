@@ -1,6 +1,18 @@
-<ion-header collapse="condense">
+<ion-header>
   <ion-toolbar color="primary">
-    <ion-title size="large">Movies App</ion-title>
+    <ion-buttons slot="start">
+      <ion-button icon-only (click)="closeSesion()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Logout</ion-button
+      >
+    </ion-buttons>
+    <ion-title size="large">Movies</ion-title>
+    <ion-buttons slot="end">
+      <ion-button icon-only (click)="closeSesion()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        Profile</ion-button
+      >
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

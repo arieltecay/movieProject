@@ -56,6 +56,7 @@ export class LoginPage implements OnInit {
     this.authService
       .login(credentials)
       .then((res) => {
+        this.storage.set('logeado', true);
         this.errorMessage = '';
         this.navCtrl.navigateForward('/home');
       })
