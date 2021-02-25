@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-button (click)="home()">
@@ -13,11 +13,12 @@
   <div id="header">
     <h1>Login</h1>
     <img [src]="url" />
-    <input type="file" (change)="onFileChange($event)" />
+    <ion-input color="danger" type="file" (change)="onFileChange($event)"> </ion-input>
   </div>
   <div class="data">
     <div>Nombre: {{userProfile.name}}</div>
     <div>Apellido: {{userProfile.LastName}}</div>
-    <div>Email: {{userProfile.email}}</div>
+    <div>Email:</div>
   </div>
+  <p class="data">{{userProfile.email}}</p>
 </ion-content>

@@ -47,10 +47,22 @@ export class RegisterPage implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       name: ['', [Validators.required, Validators.minLength(2)]],
       LastName: ['', [Validators.required, Validators.minLength(2)]],
+      image: ['', [Validators.required, Validators.minLength(0)]],
     });
   }
 
   ngOnInit() {}
+  url = '../../../assets/profile.jpg';
+
+  onFileChange(file) {
+    if (file.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(file.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      };
+    }
+  }
   register(credentials) {
     this.authService.registerUser(credentials);
     this.navCtrl.navigateBack('/login');

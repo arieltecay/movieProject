@@ -32,7 +32,6 @@ export class ProfilePage implements OnInit {
   url = '../../../assets/profile.jpg';
   onFileChange(file) {
     if (file.target.files) {
-      let data = [];
       var reader = new FileReader();
       reader.readAsDataURL(file.target.files[0]);
       reader.onload = (event: any) => {
