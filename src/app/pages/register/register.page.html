@@ -100,6 +100,14 @@
 
       <div style="background-color: white; color: red">{{errorMessage}}</div>
     </div>
+    <ion-button>
+      <ion-input
+        class="inputFile"
+        type="file"
+        (change)="onFileChange($event)"
+        formControlName="image"
+        ></ion-input> </ion-button
+    >
     <div>
       <ion-button
         type="submit"
